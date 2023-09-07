@@ -1,3 +1,4 @@
+# ДЗ 2:
 # Создайте три модели Django: клиент, товар и заказ.
 
 # Клиент может иметь несколько заказов. Заказ может содержать несколько товаров. Товар может входить в несколько заказов.
@@ -48,7 +49,7 @@ class Product(models.Model):
 class Order(models.Model): 
     customer = models.ForeignKey(Client, on_delete=models.CASCADE) 
     products = models.ManyToManyField(Product) 
-    date_ordered = models.DateTimeField(auto_now_add=True) 
+    date_ordered = models.DateTimeField(default = datetime.now()) 
     total_price = models.DecimalField(max_digits=8, decimal_places=2)
 
 
